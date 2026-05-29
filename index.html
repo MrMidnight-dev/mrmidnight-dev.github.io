@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
     }
-
+ 
     :root {
       --bg: #0a0a0f;
       --bg2: #111118;
@@ -25,11 +25,11 @@
       --mono: 'Space Mono', monospace;
       --sans: 'DM Sans', sans-serif;
     }
-
+ 
     html {
       scroll-behavior: smooth;
     }
-
+ 
     body {
       background: var(--bg);
       color: var(--text);
@@ -38,7 +38,7 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-
+ 
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -53,20 +53,20 @@
       justify-content: space-between;
       height: 56px;
     }
-
+ 
     .nav-logo {
       font-family: var(--mono);
       font-size: 14px;
       color: var(--accent2);
       letter-spacing: 0.05em;
     }
-
+ 
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
+ 
     .nav-links a {
       font-size: 13px;
       color: var(--muted);
@@ -75,11 +75,11 @@
       letter-spacing: 0.03em;
       transition: color 0.2s;
     }
-
+ 
     .nav-links a:hover {
       color: var(--accent2);
     }
-
+ 
     /* ── HERO ── */
     .hero {
       min-height: 92vh;
@@ -90,7 +90,7 @@
       max-width: 860px;
       margin: 0 auto;
     }
-
+ 
     .hero-tag {
       font-family: var(--mono);
       font-size: 12px;
@@ -102,7 +102,7 @@
       align-items: center;
       gap: 8px;
     }
-
+ 
     .hero-tag::before {
       content: '';
       display: inline-block;
@@ -110,7 +110,7 @@
       height: 1px;
       background: var(--accent);
     }
-
+ 
     h1 {
       font-family: var(--mono);
       font-size: clamp(2.4rem, 6vw, 4.2rem);
@@ -119,11 +119,11 @@
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
-
+ 
     h1 .name-accent {
       color: var(--accent2);
     }
-
+ 
     .hero-sub {
       font-size: 1.1rem;
       color: var(--muted);
@@ -132,13 +132,13 @@
       font-weight: 300;
       line-height: 1.75;
     }
-
+ 
     .hero-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
-
+ 
     .btn {
       font-family: var(--mono);
       font-size: 13px;
@@ -149,29 +149,29 @@
       cursor: pointer;
       letter-spacing: 0.04em;
     }
-
+ 
     .btn-primary {
       background: var(--accent);
       color: #fff;
       border: 1px solid var(--accent);
     }
-
+ 
     .btn-primary:hover {
       background: var(--accent2);
       border-color: var(--accent2);
     }
-
+ 
     .btn-outline {
       background: transparent;
       color: var(--text);
       border: 1px solid var(--border2);
     }
-
+ 
     .btn-outline:hover {
       border-color: var(--accent);
       color: var(--accent2);
     }
-
+ 
     /* ── SECTIONS ── */
     section {
       max-width: 860px;
@@ -179,7 +179,7 @@
       padding: 5rem 2rem;
       border-top: 1px solid var(--border);
     }
-
+ 
     .sec-label {
       font-family: var(--mono);
       font-size: 11px;
@@ -188,7 +188,7 @@
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
-
+ 
     h2 {
       font-family: var(--mono);
       font-size: 1.6rem;
@@ -196,14 +196,14 @@
       margin-bottom: 2.5rem;
       letter-spacing: -0.01em;
     }
-
+ 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 12px;
     }
-
+ 
     .skill-chip {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -214,14 +214,14 @@
       color: var(--text);
       transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-
+ 
     .skill-chip:hover {
       border-color: var(--accent);
       color: var(--accent2);
       transform: translateY(-3px) scale(1.03);
       box-shadow: 0 6px 20px rgba(124, 106, 245, 0.15);
     }
-
+ 
     .skill-chip .skill-cat {
       font-size: 10px;
       color: var(--muted);
@@ -229,13 +229,13 @@
       margin-bottom: 4px;
       letter-spacing: 0.08em;
     }
-
+ 
     /* ── TIMELINE ── */
     .timeline {
       display: flex;
       flex-direction: column;
     }
-
+ 
     .tl-item {
       display: grid;
       grid-template-columns: 140px 1fr;
@@ -243,11 +243,11 @@
       padding: 1.5rem 0;
       border-bottom: 1px solid var(--border);
     }
-
+ 
     .tl-item:last-child {
       border-bottom: none;
     }
-
+ 
     .tl-date {
       font-family: var(--mono);
       font-size: 12px;
@@ -255,14 +255,14 @@
       padding-top: 3px;
       letter-spacing: 0.04em;
     }
-
+ 
     .tl-content h3 {
       font-size: 15px;
       font-weight: 500;
       margin-bottom: 4px;
       color: var(--text);
     }
-
+ 
     .tl-org {
       font-family: var(--mono);
       font-size: 12px;
@@ -270,59 +270,59 @@
       margin-bottom: 8px;
       display: block;
     }
-
+ 
     .tl-desc {
       font-size: 14px;
       color: var(--muted);
       line-height: 1.65;
     }
-
+ 
     /* ── LANGUAGES ── */
     .lang-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 12px;
     }
-
+ 
     .lang-card {
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 16px;
     }
-
+ 
     .lang-name {
       font-family: var(--mono);
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 4px;
     }
-
+ 
     .lang-level {
       font-size: 12px;
       color: var(--muted);
     }
-
+ 
     .lang-bar {
       height: 2px;
       background: var(--border2);
       border-radius: 2px;
       margin-top: 10px;
     }
-
+ 
     .lang-fill {
       height: 100%;
       background: var(--accent);
       border-radius: 2px;
     }
-
+ 
     /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-
+ 
     .contact-item {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -332,7 +332,7 @@
       flex-direction: column;
       gap: 4px;
     }
-
+ 
     .contact-label {
       font-family: var(--mono);
       font-size: 10px;
@@ -340,17 +340,17 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
+ 
     .contact-val {
       font-size: 14px;
       color: var(--accent2);
       text-decoration: none;
     }
-
+ 
     .contact-val:hover {
       color: var(--text);
     }
-
+ 
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -360,7 +360,7 @@
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
-
+ 
     /* ── CURSOR BLINK ── */
     .cursor {
       display: inline-block;
@@ -371,27 +371,27 @@
       vertical-align: middle;
       animation: blink 1s step-end infinite;
     }
-
+ 
     @keyframes blink {
       50% { opacity: 0; }
     }
-
+ 
     /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.7s forwards;
     }
-
+ 
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
-
+ 
     .fade-in:nth-child(1) { animation-delay: 0.1s; }
     .fade-in:nth-child(2) { animation-delay: 0.25s; }
     .fade-in:nth-child(3) { animation-delay: 0.4s; }
     .fade-in:nth-child(4) { animation-delay: 0.55s; }
-
+ 
     /* ── MOBILE ── */
     /* ── SCROLL ANIMATIONS ── */
     .scroll-hidden {
@@ -399,12 +399,12 @@
       transform: translateY(40px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
+ 
     .scroll-hidden.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
+ 
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
       .nav-links { gap: 1.2rem; }
@@ -416,7 +416,7 @@
   </style>
 </head>
 <body>
-
+ 
   <nav>
     <span class="nav-logo">MrMidnight</span>
     <ul class="nav-links">
@@ -426,7 +426,7 @@
       <li><a href="#contact">contact</a></li>
     </ul>
   </nav>
-
+ 
   <!-- HERO -->
   <div class="hero" id="about">
     <p class="hero-tag fade-in">Available for Ausbildung</p>
@@ -443,7 +443,7 @@
       <a href="https://github.com/MrMidnight-dev" target="_blank" class="btn btn-outline">GitHub ↗</a>
     </div>
   </div>
-
+ 
   <!-- SKILLS -->
   <section id="skills">
     <p class="sec-label">Kenntnisse</p>
@@ -455,20 +455,20 @@
       <div class="skill-chip"><span class="skill-cat">Web</span>HTML / CSS (lernend)</div>
       <div class="skill-chip"><span class="skill-cat">Hardware</span>Hardware-Grundkenntnisse</div>
       <div class="skill-chip"><span class="skill-cat">Browser</span>Browser & Erweiterungen</div>
-
+ 
       <div class="skill-chip"><span class="skill-cat">AI</span>Claude (Anthropic)</div>
       <div class="skill-chip"><span class="skill-cat">AI</span>Cursor AI</div>
       <div class="skill-chip"><span class="skill-cat">AI</span>ChatGPT</div>
       <div class="skill-chip"><span class="skill-cat">AI</span>GitHub Copilot</div>
     </div>
   </section>
-
+ 
   <!-- EXPERIENCE -->
   <section id="experience">
     <p class="sec-label">Erfahrung & Bildung</p>
     <h2>Werdegang</h2>
     <div class="timeline">
-
+ 
       <div class="tl-item">
         <span class="tl-date">02.2025 – 08.2025</span>
         <div class="tl-content">
@@ -477,7 +477,7 @@
           <p class="tl-desc">Vertiefung Deutsch B2 im beruflichen Kontext.</p>
         </div>
       </div>
-
+ 
       <div class="tl-item">
         <span class="tl-date">2022 – 2024</span>
         <div class="tl-content">
@@ -489,7 +489,7 @@
           </p>
         </div>
       </div>
-
+ 
       <div class="tl-item">
         <span class="tl-date">09.2020 – 07.2022</span>
         <div class="tl-content">
@@ -498,7 +498,7 @@
           <p class="tl-desc">Fachschule / Online-Studium. Anerkennung als Mittlere Reife in Deutschland.</p>
         </div>
       </div>
-
+ 
       <div class="tl-item">
         <span class="tl-date">2023</span>
         <div class="tl-content">
@@ -507,10 +507,10 @@
           <p class="tl-desc">Abschluss des Integrationskurses mit offiziellem telc B1-Zertifikat.</p>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- LANGUAGES -->
   <section>
     <p class="sec-label">Kommunikation</p>
@@ -538,7 +538,7 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- CONTACT -->
   <section id="contact">
     <p class="sec-label">Erreichbar</p>
@@ -562,11 +562,11 @@
       </div>
     </div>
   </section>
-
+ 
   <footer>
     built by Ruslan Liashenko · 2026 · Stuttgart
   </footer>
-
+ 
   <script>
     /* ── TYPEWRITER ── */
     const lines = ['Ruslan', 'Liashenko'];
@@ -575,12 +575,12 @@
     let charIndex = 0;
     let currentText = '';
     const el = document.getElementById('typewriter');
-
+ 
     function type() {
       if (lineIndex >= lines.length) return;
-
+ 
       const line = lines[lineIndex];
-
+ 
       if (charIndex < line.length) {
         currentText += line[charIndex];
         const span = colors[lineIndex]
@@ -596,9 +596,9 @@
         if (lineIndex < lines.length) setTimeout(type, 300);
       }
     }
-
+ 
     setTimeout(type, 600);
-
+ 
     /* ── SCROLL ANIMATIONS ── */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -607,12 +607,12 @@
         }
       });
     }, { threshold: 0.1 });
-
+ 
     document.querySelectorAll('section').forEach(el => {
       el.classList.add('scroll-hidden');
       observer.observe(el);
     });
-
+ 
     /* ── PARALLAX ── */
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
@@ -623,6 +623,6 @@
       }
     });
   </script>
-
+ 
 </body>
 </html>
