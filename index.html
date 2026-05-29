@@ -212,12 +212,14 @@
       font-size: 13px;
       font-family: var(--mono);
       color: var(--text);
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
     .skill-chip:hover {
       border-color: var(--accent);
       color: var(--accent2);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(124, 106, 245, 0.15);
     }
 
     .skill-chip .skill-cat {
@@ -391,6 +393,18 @@
     .fade-in:nth-child(4) { animation-delay: 0.55s; }
 
     /* ── MOBILE ── */
+    /* ── SCROLL ANIMATIONS ── */
+    .scroll-hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .scroll-hidden.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
       .nav-links { gap: 1.2rem; }
@@ -417,8 +431,7 @@
   <div class="hero" id="about">
     <p class="hero-tag fade-in">Available for Ausbildung</p>
     <h1 class="fade-in">
-      Ruslan<br>
-      <span class="name-accent">Liashenko</span><span class="cursor"></span>
+      <span id="typewriter"></span><span class="cursor"></span>
     </h1>
     <p class="hero-sub fade-in">
       Angehender Fachinformatiker Anwendungsentwicklung — based in Stuttgart.<br>
@@ -553,6 +566,63 @@
   <footer>
     built by Ruslan Liashenko · 2026 · Stuttgart
   </footer>
+
+  <script>
+    /* ── TYPEWRITER ── */
+    const lines = ['Ruslan', 'Liashenko'];
+    const colors = ['', 'name-accent'];
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentText = '';
+    const el = document.getElementById('typewriter');
+
+    function type() {
+      if (lineIndex >= lines.length) return;
+
+      const line = lines[lineIndex];
+
+      if (charIndex < line.length) {
+        currentText += line[charIndex];
+        const span = colors[lineIndex]
+          ? `<span class="${colors[lineIndex]}">${currentText}</span>`
+          : currentText;
+        el.innerHTML = lineIndex === 0 ? span : lines[0] + '<br><span class="name-accent">' + currentText + '</span>';
+        charIndex++;
+        setTimeout(type, 80);
+      } else {
+        lineIndex++;
+        charIndex = 0;
+        currentText = '';
+        if (lineIndex < lines.length) setTimeout(type, 300);
+      }
+    }
+
+    setTimeout(type, 600);
+
+    /* ── SCROLL ANIMATIONS ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(el => {
+      el.classList.add('scroll-hidden');
+      observer.observe(el);
+    });
+
+    /* ── PARALLAX ── */
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.transform = `translateY(${scrollY * 0.25}px)`;
+        hero.style.opacity = 1 - scrollY / 600;
+      }
+    });
+  </script>
 
 </body>
 </html>
