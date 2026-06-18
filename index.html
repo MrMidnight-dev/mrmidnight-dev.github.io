@@ -9,312 +9,104 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0f;
-      --bg2: #111118;
-      --bg3: #18181f;
-      --border: rgba(255,255,255,0.08);
-      --border2: rgba(255,255,255,0.14);
-      --accent: #7c6af5;
-      --accent2: #a599ff;
-      --text: #f0eeff;
-      --muted: #8b8aa0;
-      --mono: 'Space Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
+      --bg: #0a0a0f; --bg2: #111118; --bg3: #18181f;
+      --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
+      --accent: #7c6af5; --accent2: #a599ff;
+      --text: #f0eeff; --muted: #8b8aa0;
+      --mono: 'Space Mono', monospace; --sans: 'DM Sans', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; min-height: 100vh; }
 
-    /* ── NAV ── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
     }
 
     .nav-logo { font-family: var(--mono); font-size: 14px; color: var(--accent2); letter-spacing: 0.05em; }
-
     .nav-right { display: flex; align-items: center; gap: 2rem; }
-
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      font-family: var(--mono);
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-family: var(--mono); letter-spacing: 0.03em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent2); }
 
-    /* ── LANG SWITCH ── */
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .lang-toggle {
-      position: relative;
-      width: 44px;
-      height: 22px;
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-
+    /* LANG SWITCH */
+    .lang-switch { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .lang-toggle { position: relative; width: 44px; height: 22px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 12px; cursor: pointer; transition: border-color 0.2s; }
     .lang-toggle:hover { border-color: var(--accent); }
-
-    .lang-toggle .knob {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      transition: transform 0.25s ease;
-    }
-
+    .lang-toggle .knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); transition: transform 0.25s ease; }
     .lang-toggle.en .knob { transform: translateX(20px); }
-
     .lang-label { letter-spacing: 0.05em; }
     .lang-label.active { color: var(--accent2); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 2rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    /* HERO */
+    .hero { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2rem; max-width: 860px; margin: 0 auto; }
+    .hero-tag { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px; }
     .hero-tag::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent); }
-
-    h1 {
-      font-family: var(--mono);
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-
+    h1 { font-family: var(--mono); font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
     h1 .name-accent { color: var(--accent2); }
-
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-      line-height: 1.75;
-    }
-
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 580px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
     .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn {
-      font-family: var(--mono);
-      font-size: 13px;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-    }
-
+    .btn { font-family: var(--mono); font-size: 13px; padding: 10px 20px; border-radius: 4px; text-decoration: none; transition: all 0.2s; cursor: pointer; letter-spacing: 0.04em; }
     .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
     .btn-primary:hover { background: var(--accent2); border-color: var(--accent2); }
-
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
 
-    /* ── SECTIONS ── */
-    section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .sec-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
+    /* SECTIONS */
+    section { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--border); }
+    .sec-label { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
     h2 { font-family: var(--mono); font-size: 1.6rem; font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.01em; }
 
-    /* ── ABOUT TEXT ── */
-    .about-text { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
-
-    /* ── SKILLS ── */
-    .skills-group { margin-bottom: 2rem; }
+    /* SKILLS */
+    .skills-group { margin-bottom: 2.2rem; }
     .skills-group:last-child { margin-bottom: 0; }
-
-    .skills-group-title {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--accent2);
-      margin-bottom: 0.9rem;
-      font-weight: 700;
-    }
-
-    .skills-group-desc {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      line-height: 1.7;
-      max-width: 640px;
-    }
-
+    .skills-group-title { font-family: var(--mono); font-size: 12px; color: var(--accent2); margin-bottom: 0.9rem; font-weight: 700; letter-spacing: 0.04em; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+    .skill-chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 11px 14px; font-size: 12px; font-family: var(--mono); color: var(--text); transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .skill-chip:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 20px rgba(124,106,245,0.15); }
 
-    .skill-chip {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 11px 14px;
-      font-size: 12px;
-      font-family: var(--mono);
-      color: var(--text);
-      transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-
-    .skill-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent2);
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 6px 20px rgba(124,106,245,0.15);
-    }
-
-    /* ── TIMELINE ── */
+    /* TIMELINE */
     .timeline { display: flex; flex-direction: column; }
-
-    .tl-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .tl-item { display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
     .tl-item:last-child { border-bottom: none; }
-
     .tl-date { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 3px; letter-spacing: 0.04em; }
-
     .tl-content h3 { font-size: 15px; font-weight: 500; margin-bottom: 4px; color: var(--text); }
-
     .tl-org { font-family: var(--mono); font-size: 12px; color: var(--accent2); margin-bottom: 8px; display: block; }
-
     .tl-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-    /* ── LANGUAGES ── */
+    /* LANGUAGES */
     .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-
     .lang-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 16px; }
-
     .lang-name { font-family: var(--mono); font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .lang-level { font-size: 12px; color: var(--muted); }
-
     .lang-bar { height: 2px; background: var(--border2); border-radius: 2px; margin-top: 10px; }
     .lang-fill { height: 100%; background: var(--accent); border-radius: 2px; }
 
-    /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-
-    .project-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 20px; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; }
     .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-
     .project-title { font-family: var(--mono); font-size: 15px; color: var(--text); margin-bottom: 6px; font-weight: 700; }
     .project-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
     .project-link { font-family: var(--mono); font-size: 11px; color: var(--accent2); }
+    .project-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 3px; background: rgba(255,204,0,0.1); border: 1px solid rgba(255,204,0,0.3); color: #ffcc00; margin-bottom: 8px; }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-    .contact-item {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 16px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .contact-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; }
     .contact-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
     .contact-val { font-size: 14px; color: var(--accent2); text-decoration: none; }
     .contact-val:hover { color: var(--text); }
 
-    /* ── FOOTER ── */
     footer { text-align: center; padding: 2rem; font-family: var(--mono); font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
 
-    /* ── CURSOR BLINK ── */
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background: var(--accent);
-      margin-left: 6px;
-      vertical-align: middle;
-      animation: blink 1s step-end infinite;
-    }
-
+    .cursor { display: inline-block; width: 3px; height: 1em; background: var(--accent); margin-left: 6px; vertical-align: middle; animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* ── FADE IN ── */
     .fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .fade-in:nth-child(1) { animation-delay: 0.1s; }
@@ -322,444 +114,344 @@
     .fade-in:nth-child(3) { animation-delay: 0.4s; }
     .fade-in:nth-child(4) { animation-delay: 0.55s; }
 
-    /* ── SCROLL ANIMATIONS ── */
     .scroll-hidden { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .scroll-hidden.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 11px; }
       .hero { padding: 3rem 1.2rem; }
       section { padding: 3.5rem 1.2rem; }
       .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
       .contact-grid { grid-template-columns: 1fr; }
     }
-
-    [data-i18n] { transition: opacity 0.15s; }
   </style>
 </head>
 <body>
 
-  <nav>
-    <span class="nav-logo">MrMidnight</span>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#about" data-i18n="nav.about">about</a></li>
-        <li><a href="#skills" data-i18n="nav.skills">skills</a></li>
-        <li><a href="#experience" data-i18n="nav.experience">experience</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">projects</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">contact</a></li>
-      </ul>
-      <div class="lang-switch">
-        <span class="lang-label active" id="lbl-de">DE</span>
-        <div class="lang-toggle" id="lang-toggle"><div class="knob"></div></div>
-        <span class="lang-label" id="lbl-en">EN</span>
-      </div>
+<nav>
+  <span class="nav-logo">MrMidnight</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#skills" data-i18n="nav.skills">skills</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">werdegang</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">projekte</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">kontakt</a></li>
+    </ul>
+    <div class="lang-switch">
+      <span class="lang-label active" id="lbl-de">DE</span>
+      <div class="lang-toggle" id="lang-toggle"><div class="knob"></div></div>
+      <span class="lang-label" id="lbl-en">EN</span>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero" id="about">
-    <p class="hero-tag fade-in" data-i18n="hero.tag">Available for Ausbildung</p>
-    <h1 class="fade-in">
-      <span id="typewriter"></span><span class="cursor"></span>
-    </h1>
-    <p class="hero-sub fade-in" data-i18n="hero.sub">
-      Angehender Fachinformatiker Anwendungsentwicklung — based in Stuttgart.<br>
-      Interessiert an Webentwicklung, IT-Systemen und Game Development.<br>
-      Aktiv lernend, hands-on, und bereit für die Ausbildung.
-    </p>
-    <div class="hero-links fade-in">
-      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta">Kontakt aufnehmen</a>
-      <a href="https://github.com/MrMidnight-dev" target="_blank" class="btn btn-outline">GitHub ↗</a>
+<!-- HERO -->
+<div class="hero" id="about">
+  <p class="hero-tag fade-in" data-i18n="hero.tag">Offen für Ausbildung</p>
+  <h1 class="fade-in">
+    <span id="typewriter"></span><span class="cursor"></span>
+  </h1>
+  <p class="hero-sub fade-in" data-i18n="hero.sub">
+    Angehender IT-Auszubildender (Fachinformatiker) aus Stuttgart.<br>
+    Interesse an Softwareentwicklung, Webentwicklung, IT-Systemen und Spieleentwicklung.
+  </p>
+  <div class="hero-links fade-in">
+    <a href="#contact" class="btn btn-primary" data-i18n="hero.cta">Kontakt aufnehmen</a>
+    <a href="https://github.com/MrMidnight-dev" target="_blank" class="btn btn-outline">GitHub ↗</a>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="sec-label" data-i18n="skills.label">Kenntnisse</p>
+  <h2 data-i18n="skills.heading">Skills & Tools</h2>
+
+  <div class="skills-group">
+    <p class="skills-group-title" data-i18n="sg.dev">Development & AI Tools</p>
+    <div class="skills-grid">
+      <div class="skill-chip">VS Code</div>
+      <div class="skill-chip">HTML / CSS</div>
+      <div class="skill-chip">JavaScript <span style="font-size:10px;color:var(--muted)" data-i18n="chip.basics">(Grundlagen)</span></div>
+      <div class="skill-chip">GitHub</div>
+      <div class="skill-chip">Claude (Anthropic)</div>
+      <div class="skill-chip">ChatGPT</div>
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section>
-    <p class="sec-label" data-i18n="about.label">Über mich</p>
-    <h2 data-i18n="about.heading">Wer ich bin</h2>
-    <p class="about-text" data-i18n="about.text">
-      Motivierter und lernbereiter Bewerber mit großem Interesse an IT und Webentwicklung.
-      Praktische Erfahrung in der Verwaltung und Optimierung von Online-Systemen sowie in der
-      Anpassung von Software- und Browsereinstellungen. Gute Kenntnisse in Windows-Systempflege,
-      Office-Programmen und technischer Problembehebung. Zielstrebig, detailorientiert und bereit,
-      sich in der Ausbildung als Fachinformatiker für Anwendungsentwicklung oder
-      Systemintegration weiterzuentwickeln.
-    </p>
-  </section>
+  <div class="skills-group" style="margin-top:1.8rem">
+    <p class="skills-group-title" data-i18n="sg.office">Office & Software</p>
+    <div class="skills-grid">
+      <div class="skill-chip">Microsoft Word</div>
+      <div class="skill-chip">Adobe Acrobat / PDF</div>
+    </div>
+  </div>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="sec-label" data-i18n="skills.label">Kenntnisse</p>
-    <h2 data-i18n="skills.heading">Skills & Tools</h2>
+  <div class="skills-group" style="margin-top:1.8rem">
+    <p class="skills-group-title" data-i18n="sg.system">System (Windows)</p>
+    <div class="skills-grid">
+      <div class="skill-chip">Windows</div>
+      <div class="skill-chip" data-i18n="chip.maintenance">Systempflege</div>
+      <div class="skill-chip" data-i18n="chip.drivers">Treiber & Geräte</div>
+      <div class="skill-chip" data-i18n="chip.troubleshoot">Fehlerbehebung</div>
+      <div class="skill-chip" data-i18n="chip.hardware">Hardware-Grundlagen</div>
+    </div>
+  </div>
+</section>
 
-    <div class="skills-group">
-      <p class="skills-group-title" data-i18n="skills.group.dev">Development & AI Tools</p>
-      <div class="skills-grid">
-        <div class="skill-chip">VS Code</div>
-        <div class="skill-chip">HTML / CSS</div>
-        <div class="skill-chip">Claude (Anthropic)</div>
-        <div class="skill-chip">Cursor AI</div>
-        <div class="skill-chip">ChatGPT</div>
-        <div class="skill-chip">GitHub Copilot</div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="sec-label" data-i18n="exp.label">Erfahrung & Bildung</p>
+  <h2 data-i18n="exp.heading">Werdegang</h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <span class="tl-date">02.2025 – 08.2025</span>
+      <div class="tl-content">
+        <h3 data-i18n="exp.1.title">Berufsbezogener Sprachkurs – Deutsch B2</h3>
+        <span class="tl-org">METIS GmbH, Stuttgart</span>
+        <p class="tl-desc" data-i18n="exp.1.desc">Intensivsprachkurs Deutsch B2 zur beruflichen Integration mit Schwerpunkt Kommunikation im Arbeitsalltag.</p>
       </div>
     </div>
 
-    <div class="skills-group">
-      <p class="skills-group-title" data-i18n="skills.group.office">Office & Software</p>
-      <p class="skills-group-desc" data-i18n="skills.group.office.desc">
-        Erfahrung im Umgang mit Microsoft Word und Grundkenntnisse in Excel. Erweiterte Kenntnisse
-        in der Anpassung und Optimierung von Webbrowsern (Opera, Opera GX, Firefox, Google Chrome),
-        einschließlich Datenschutz- und Werbeeinstellungen, Erweiterungen und Designanpassungen.
-        Sicherer Umgang mit PDF-Dokumenten und Adobe Acrobat Reader.
-      </p>
-      <div class="skills-grid">
-        <div class="skill-chip">Microsoft Word</div>
-        <div class="skill-chip">Excel (Grundlagen)</div>
-        <div class="skill-chip">Opera / Opera GX</div>
-        <div class="skill-chip">Firefox</div>
-        <div class="skill-chip">Google Chrome</div>
-        <div class="skill-chip">Adobe Acrobat / PDF</div>
+    <div class="tl-item">
+      <span class="tl-date">2022 – 2024</span>
+      <div class="tl-content">
+        <h3 data-i18n="exp.2.title">Website-Administrator</h3>
+        <span class="tl-org">Joy Kiew, Ukraine (Remote)</span>
+        <p class="tl-desc" data-i18n="exp.2.desc">Verwaltung und Pflege eines Online-Shops für Brettspiele. Produktbeschreibungen, Kategorien und Artikelpflege über CMS-Administrationspanel. Teilzeitbeschäftigung im Remote-Modus.</p>
       </div>
     </div>
 
-    <div class="skills-group">
-      <p class="skills-group-title" data-i18n="skills.group.system">Systemoptimierung (Windows)</p>
-      <p class="skills-group-desc" data-i18n="skills.group.system.desc">
-        Anpassung und Optimierung von Windows-Systemen zur Leistungssteigerung und visuellen
-        Verbesserung; Einrichtung von Treibern, Geräten und Desktop-Funktionen. Verwaltung von
-        Autostart-Programmen, Systempflege und Fehlerbehebung.
-      </p>
-      <div class="skills-grid">
-        <div class="skill-chip">Windows</div>
-        <div class="skill-chip">Systemwartung</div>
-        <div class="skill-chip">Treiber & Geräte</div>
-        <div class="skill-chip">Performance-Tuning</div>
-        <div class="skill-chip">Fehlerbehebung</div>
+    <div class="tl-item">
+      <span class="tl-date">09.2023 – 02.2024</span>
+      <div class="tl-content">
+        <h3 data-i18n="exp.3.title">Berufsbezogener Sprachkurs – Deutsch B2</h3>
+        <span class="tl-org">tricos GbR, Stuttgart (DeuFöV, BAMF)</span>
+        <p class="tl-desc" data-i18n="exp.3.desc">Berufsbezogener Deutschsprachkurs mit Fokus auf berufliche Kommunikation und Vorbereitung auf die telc B2-Prüfung.</p>
       </div>
     </div>
 
-    <div class="skills-group">
-      <p class="skills-group-title" data-i18n="skills.group.tech">Technisches Verständnis</p>
-      <p class="skills-group-desc" data-i18n="skills.group.tech.desc">
-        Gutes Verständnis für Computerhardware, Betriebssysteme und technische Zusammenhänge;
-        Fähigkeit, Probleme systematisch zu analysieren und zu lösen.
-      </p>
-      <div class="skills-grid">
-        <div class="skill-chip">Hardware-Grundlagen</div>
-        <div class="skill-chip">Fehleranalyse</div>
-        <div class="skill-chip">Netzwerk & Internet</div>
-        <div class="skill-chip">Dateiverwaltung</div>
+    <div class="tl-item">
+      <span class="tl-date">10.2022 – 08.2023</span>
+      <div class="tl-content">
+        <h3 data-i18n="exp.4.title">Integrationskurs – Deutsch A1–B1</h3>
+        <span class="tl-org">tricos GbR, Stuttgart (BAMF)</span>
+        <p class="tl-desc" data-i18n="exp.4.desc">Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit offiziellem telc B1-Zertifikat.</p>
       </div>
     </div>
-  </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <p class="sec-label" data-i18n="exp.label">Erfahrung & Bildung</p>
-    <h2 data-i18n="exp.heading">Werdegang</h2>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <span class="tl-date">02.2025 – 08.2025</span>
-        <div class="tl-content">
-          <h3 data-i18n="exp.item1.title">Berufsbezogener Sprachkurs – Deutsch B2</h3>
-          <span class="tl-org">METIS GmbH, Stuttgart</span>
-          <p class="tl-desc" data-i18n="exp.item1.desc">
-            Intensivsprachkurs Deutsch B2 zur beruflichen Integration mit Schwerpunkt
-            Kommunikation im Arbeitsalltag. Prüfung abgelegt, jedoch nicht bestanden.
-          </p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">2022 – 2024</span>
-        <div class="tl-content">
-          <h3 data-i18n="exp.item2.title">Website-Administrator</h3>
-          <span class="tl-org">Joy Kiew, Ukraine (Remote)</span>
-          <p class="tl-desc" data-i18n="exp.item2.desc">
-            Verwaltung und Pflege eines Online-Shops für Brettspiele und Freizeitprodukte.
-            Produktbeschreibungen, Kategorien, Artikelpflege über CMS-Administrationspanel.
-            Teilzeitbeschäftigung im Remote-Modus.
-          </p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">09.2023 – 02.2024</span>
-        <div class="tl-content">
-          <h3 data-i18n="exp.item3.title">Berufsbezogener Sprachkurs – Deutsch B2</h3>
-          <span class="tl-org">tricos GbR, Stuttgart (DeuFöV, BAMF)</span>
-          <p class="tl-desc" data-i18n="exp.item3.desc">
-            Berufsbezogener Deutschsprachkurs nach DeuFöV mit Fokus auf berufliche Kommunikation
-            und Vorbereitung auf die telc B2-Prüfung. Prüfung abgelegt, jedoch nicht bestanden.
-          </p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">09.2020 – 07.2022</span>
-        <div class="tl-content">
-          <h3 data-i18n="exp.item4.title">Informationssysteme und Technologien</h3>
-          <span class="tl-org">Nationale Vadym-Hetman-Wirtschaftsuniversität, Kiew</span>
-          <p class="tl-desc" data-i18n="exp.item4.desc">
-            Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung
-            und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.
-          </p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">10.2022 – 08.2023</span>
-        <div class="tl-content">
-          <h3 data-i18n="exp.item5.title">Integrationskurs – Deutsch A1–B1</h3>
-          <span class="tl-org">tricos GbR, Stuttgart (BAMF)</span>
-          <p class="tl-desc" data-i18n="exp.item5.desc">
-            Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit
-            offiziellem telc B1-Zertifikat.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LANGUAGES -->
-  <section>
-    <p class="sec-label" data-i18n="lang.label">Kommunikation</p>
-    <h2 data-i18n="lang.heading">Sprachen</h2>
-    <div class="lang-grid">
-      <div class="lang-card">
-        <p class="lang-name">Russisch</p>
-        <p class="lang-level" data-i18n="lang.native">Muttersprache</p>
-        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Ukrainisch</p>
-        <p class="lang-level" data-i18n="lang.native">Muttersprache</p>
-        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Deutsch</p>
-        <p class="lang-level">B1</p>
-        <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Englisch</p>
-        <p class="lang-level" data-i18n="lang.basic">Grundkenntnisse</p>
-        <div class="lang-bar"><div class="lang-fill" style="width:28%"></div></div>
+    <div class="tl-item">
+      <span class="tl-date">09.2020 – 07.2022</span>
+      <div class="tl-content">
+        <h3 data-i18n="exp.5.title">Informationssysteme und Technologien</h3>
+        <span class="tl-org">Nationale Vadym-Hetman-Wirtschaftsuniversität, Kiew</span>
+        <p class="tl-desc" data-i18n="exp.5.desc">Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.</p>
       </div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="sec-label" data-i18n="projects.label">Eigene Projekte</p>
-    <h2 data-i18n="projects.heading">Projekte</h2>
-    <div class="projects-grid">
-      <a href="https://github.com/MrMidnight-dev/mrmidnight-dev.github.io" target="_blank" class="project-card">
-        <p class="project-title">Portfolio Website</p>
-        <p class="project-desc" data-i18n="projects.portfolio.desc">
-          Diese Seite — gebaut mit HTML, CSS und JavaScript. Dark Theme, Scroll-Animationen,
-          zweisprachig (DE/EN).
-        </p>
-        <p class="project-link">GitHub ↗</p>
-      </a>
-      <a href="snake.html" class="project-card">
-        <p class="project-title">Snake Game</p>
-        <p class="project-desc" data-i18n="projects.snake.desc">
-          Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System
-          und Level-Mechanik.
-        </p>
-        <p class="project-link" data-i18n="projects.play">Spielen ↗</p>
-      </a>
-      <a href="minesweeper.html" class="project-card">
-        <p class="project-title">Minesweeper</p>
-        <p class="project-desc" data-i18n="projects.mines.desc">
-          Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.
-        </p>
-        <p class="project-link" data-i18n="projects.play">Spielen ↗</p>
-      </a>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section>
+  <p class="sec-label" data-i18n="lang.label">Kommunikation</p>
+  <h2 data-i18n="lang.heading">Sprachen</h2>
+  <div class="lang-grid">
+    <div class="lang-card">
+      <p class="lang-name">Russisch</p>
+      <p class="lang-level" data-i18n="lang.native">Muttersprache</p>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="sec-label" data-i18n="contact.label">Erreichbar</p>
-    <h2 data-i18n="contact.heading">Kontakt</h2>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <span class="contact-label">Email</span>
-        <a href="mailto:ruslan.liashenko.dev@gmail.com" class="contact-val">ruslan.liashenko.dev@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label" data-i18n="contact.phone">Telefon</span>
-        <a href="tel:+4915117292541" class="contact-val">+49 151 1729 2541</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label" data-i18n="contact.location">Standort</span>
-        <span class="contact-val">Stuttgart, Deutschland</span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">GitHub</span>
-        <a href="https://github.com/MrMidnight-dev" target="_blank" class="contact-val">github.com/MrMidnight-dev</a>
-      </div>
+    <div class="lang-card">
+      <p class="lang-name">Ukrainisch</p>
+      <p class="lang-level" data-i18n="lang.native">Muttersprache</p>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
     </div>
-  </section>
+    <div class="lang-card">
+      <p class="lang-name">Deutsch</p>
+      <p class="lang-level" data-i18n="lang.de.level">B1 · B2-Kurs abgeschlossen</p>
+      <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+    </div>
+    <div class="lang-card">
+      <p class="lang-name">Englisch</p>
+      <p class="lang-level" data-i18n="lang.basic">Grundkenntnisse</p>
+      <div class="lang-bar"><div class="lang-fill" style="width:28%"></div></div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    built by Ruslan Liashenko · 2026 · Stuttgart
-  </footer>
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="sec-label" data-i18n="proj.label">Eigene Projekte</p>
+  <h2 data-i18n="proj.heading">Projekte</h2>
+  <div class="projects-grid">
 
-  <script>
-    /* ── TRANSLATIONS ── */
-    const translations = {
-      de: {
-        "nav.about": "über mich", "nav.skills": "skills", "nav.experience": "werdegang",
-        "nav.projects": "projekte", "nav.contact": "kontakt",
-        "hero.tag": "Verfügbar für Ausbildung",
-        "hero.sub": "Angehender Fachinformatiker Anwendungsentwicklung — based in Stuttgart.<br>Interessiert an Webentwicklung, IT-Systemen und Game Development.<br>Aktiv lernend, hands-on, und bereit für die Ausbildung.",
-        "hero.cta": "Kontakt aufnehmen",
-        "about.label": "Über mich", "about.heading": "Wer ich bin",
-        "about.text": "Motivierter und lernbereiter Bewerber mit großem Interesse an IT und Webentwicklung. Praktische Erfahrung in der Verwaltung und Optimierung von Online-Systemen sowie in der Anpassung von Software- und Browsereinstellungen. Gute Kenntnisse in Windows-Systempflege, Office-Programmen und technischer Problembehebung. Zielstrebig, detailorientiert und bereit, sich in der Ausbildung als Fachinformatiker für Anwendungsentwicklung oder Systemintegration weiterzuentwickeln.",
-        "skills.label": "Kenntnisse", "skills.heading": "Skills & Tools",
-        "skills.group.dev": "Development & AI Tools",
-        "skills.group.office": "Office & Software",
-        "skills.group.office.desc": "Erfahrung im Umgang mit Microsoft Word und Grundkenntnisse in Excel. Erweiterte Kenntnisse in der Anpassung und Optimierung von Webbrowsern (Opera, Opera GX, Firefox, Google Chrome), einschließlich Datenschutz- und Werbeeinstellungen, Erweiterungen und Designanpassungen. Sicherer Umgang mit PDF-Dokumenten und Adobe Acrobat Reader.",
-        "skills.group.system": "Systemoptimierung (Windows)",
-        "skills.group.system.desc": "Anpassung und Optimierung von Windows-Systemen zur Leistungssteigerung und visuellen Verbesserung; Einrichtung von Treibern, Geräten und Desktop-Funktionen. Verwaltung von Autostart-Programmen, Systempflege und Fehlerbehebung.",
-        "skills.group.tech": "Technisches Verständnis",
-        "skills.group.tech.desc": "Gutes Verständnis für Computerhardware, Betriebssysteme und technische Zusammenhänge; Fähigkeit, Probleme systematisch zu analysieren und zu lösen.",
-        "exp.label": "Erfahrung & Bildung", "exp.heading": "Werdegang",
-        "exp.item1.title": "Berufsbezogener Sprachkurs – Deutsch B2",
-        "exp.item1.desc": "Intensivsprachkurs Deutsch B2 zur beruflichen Integration mit Schwerpunkt Kommunikation im Arbeitsalltag. Prüfung abgelegt, jedoch nicht bestanden.",
-        "exp.item2.title": "Website-Administrator",
-        "exp.item2.desc": "Verwaltung und Pflege eines Online-Shops für Brettspiele und Freizeitprodukte. Produktbeschreibungen, Kategorien, Artikelpflege über CMS-Administrationspanel. Teilzeitbeschäftigung im Remote-Modus.",
-        "exp.item3.title": "Berufsbezogener Sprachkurs – Deutsch B2",
-        "exp.item3.desc": "Berufsbezogener Deutschsprachkurs nach DeuFöV mit Fokus auf berufliche Kommunikation und Vorbereitung auf die telc B2-Prüfung. Prüfung abgelegt, jedoch nicht bestanden.",
-        "exp.item4.title": "Informationssysteme und Technologien",
-        "exp.item4.desc": "Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.",
-        "exp.item5.title": "Integrationskurs – Deutsch A1–B1",
-        "exp.item5.desc": "Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit offiziellem telc B1-Zertifikat.",
-        "lang.label": "Kommunikation", "lang.heading": "Sprachen",
-        "lang.native": "Muttersprache", "lang.basic": "Grundkenntnisse",
-        "projects.label": "Eigene Projekte", "projects.heading": "Projekte",
-        "projects.portfolio.desc": "Diese Seite — gebaut mit HTML, CSS und JavaScript. Dark Theme, Scroll-Animationen, zweisprachig (DE/EN).",
-        "projects.snake.desc": "Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System und Level-Mechanik.",
-        "projects.mines.desc": "Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.",
-        "projects.play": "Spielen ↗",
-        "contact.label": "Erreichbar", "contact.heading": "Kontakt",
-        "contact.phone": "Telefon", "contact.location": "Standort",
-      },
-      en: {
-        "nav.about": "about", "nav.skills": "skills", "nav.experience": "experience",
-        "nav.projects": "projects", "nav.contact": "contact",
-        "hero.tag": "Available for Ausbildung",
-        "hero.sub": "Aspiring Fachinformatiker Anwendungsentwicklung (Application Development) — based in Stuttgart.<br>Interested in web development, IT systems and game development.<br>Actively learning, hands-on, and ready for the Ausbildung.",
-        "hero.cta": "Get in touch",
-        "about.label": "About me", "about.heading": "Who I am",
-        "about.text": "Motivated and eager-to-learn applicant with a strong interest in IT and web development. Practical experience managing and optimizing online systems as well as customizing software and browser settings. Solid knowledge of Windows system maintenance, Office programs and technical troubleshooting. Goal-oriented, detail-focused, and ready to grow through an Ausbildung as Fachinformatiker for application development or system integration.",
-        "skills.label": "Skills", "skills.heading": "Skills & Tools",
-        "skills.group.dev": "Development & AI Tools",
-        "skills.group.office": "Office & Software",
-        "skills.group.office.desc": "Experience with Microsoft Word and basic knowledge of Excel. Advanced skills in customizing and optimizing web browsers (Opera, Opera GX, Firefox, Google Chrome), including privacy and ad settings, extensions and design tweaks. Confident handling of PDF documents and Adobe Acrobat Reader.",
-        "skills.group.system": "System Optimization (Windows)",
-        "skills.group.system.desc": "Customizing and optimizing Windows systems for better performance and visuals; setting up drivers, devices and desktop features. Managing startup programs, system maintenance and troubleshooting.",
-        "skills.group.tech": "Technical Understanding",
-        "skills.group.tech.desc": "Good understanding of computer hardware, operating systems and technical concepts; able to analyze and solve problems systematically.",
-        "exp.label": "Experience & Education", "exp.heading": "Background",
-        "exp.item1.title": "Job-related German Course – B2",
-        "exp.item1.desc": "Intensive German B2 course for professional integration, focused on everyday workplace communication. Exam taken, not passed.",
-        "exp.item2.title": "Website Administrator",
-        "exp.item2.desc": "Managed and maintained an online shop for board games and leisure products. Product descriptions, categories, item maintenance via CMS admin panel. Part-time, fully remote.",
-        "exp.item3.title": "Job-related German Course – B2",
-        "exp.item3.desc": "Job-related German course (DeuFöV) focused on professional communication and preparation for the telc B2 exam. Exam taken, not passed.",
-        "exp.item4.title": "Information Systems and Technologies",
-        "exp.item4.desc": "Technical college / online studies focused on IT fundamentals, software development and data processing. Recognized as equivalent to German Mittlere Reife.",
-        "exp.item5.title": "Integration Course – German A1–B1",
-        "exp.item5.desc": "German integration course from A1 to B1 under BAMF guidelines. Completed with an official telc B1 certificate.",
-        "lang.label": "Communication", "lang.heading": "Languages",
-        "lang.native": "Native speaker", "lang.basic": "Basic knowledge",
-        "projects.label": "My Projects", "projects.heading": "Projects",
-        "projects.portfolio.desc": "This site — built with HTML, CSS and JavaScript. Dark theme, scroll animations, bilingual (DE/EN).",
-        "projects.snake.desc": "Classic Snake game with smooth animation, multiple fruit types, score system and level mechanics.",
-        "projects.mines.desc": "Classic Minesweeper with three difficulty levels, a timer and flag system.",
-        "projects.play": "Play ↗",
-        "contact.label": "Reach me", "contact.heading": "Contact",
-        "contact.phone": "Phone", "contact.location": "Location",
-      }
-    };
+    <a href="https://mrmidnight-dev.github.io" target="_blank" class="project-card">
+      <p class="project-title">Portfolio Website</p>
+      <p class="project-desc" data-i18n="proj.portfolio.desc">Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN Sprachumschalter. Gebaut mit HTML, CSS und JavaScript.</p>
+      <p class="project-link">mrmidnight-dev.github.io ↗</p>
+    </a>
 
-    let currentLang = localStorage.getItem('lang') || 'de';
+    <a href="https://mrmidnight-dev.github.io/Snake-Game" target="_blank" class="project-card">
+      <p class="project-title">Snake Game</p>
+      <p class="project-desc" data-i18n="proj.snake.desc">Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System und Level-Mechanik.</p>
+      <p class="project-link" data-i18n="proj.play">Spielen ↗</p>
+    </a>
 
-    function applyLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('lang', lang);
-      document.documentElement.lang = lang;
+    <a href="https://mrmidnight-dev.github.io/Minesweeper" target="_blank" class="project-card">
+      <p class="project-title">Minesweeper</p>
+      <p class="project-desc" data-i18n="proj.mines.desc">Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.</p>
+      <p class="project-link" data-i18n="proj.play">Spielen ↗</p>
+    </a>
 
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        const val = translations[lang][key];
-        if (val !== undefined) el.innerHTML = val;
-      });
+    <a href="https://mrmidnight-dev.github.io/Simple-Platformer/" target="_blank" class="project-card">
+      <p class="project-title">Simple Platformer</p>
+      <span class="project-badge" data-i18n="proj.wip">In Entwicklung</span>
+      <p class="project-desc" data-i18n="proj.platformer.desc">2D-Plattformspiel in Entwicklung. Browser-basiert mit HTML5 Canvas.</p>
+      <p class="project-link" data-i18n="proj.open">Öffnen ↗</p>
+    </a>
 
-      const toggle = document.getElementById('lang-toggle');
-      toggle.classList.toggle('en', lang === 'en');
-      document.getElementById('lbl-de').classList.toggle('active', lang === 'de');
-      document.getElementById('lbl-en').classList.toggle('active', lang === 'en');
-    }
+  </div>
+</section>
 
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      applyLang(currentLang === 'de' ? 'en' : 'de');
-    });
+<!-- CONTACT -->
+<section id="contact">
+  <p class="sec-label" data-i18n="contact.label">Erreichbar</p>
+  <h2 data-i18n="contact.heading">Kontakt</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span class="contact-label">Email</span>
+      <a href="mailto:ruslan.liashenko.dev@gmail.com" class="contact-val">ruslan.liashenko.dev@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label" data-i18n="contact.phone">Telefon</span>
+      <a href="tel:+4915117292541" class="contact-val">+49 151 1729 2541</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label" data-i18n="contact.location">Standort</span>
+      <span class="contact-val">Stuttgart, Deutschland</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/MrMidnight-dev" target="_blank" class="contact-val">github.com/MrMidnight-dev</a>
+    </div>
+  </div>
+</section>
 
-    applyLang(currentLang);
+<footer>built by Ruslan Liashenko · 2026 · Stuttgart</footer>
 
-    /* ── TYPEWRITER ── */
-    const lines = ['Ruslan', 'Liashenko'];
-    const colors = ['', 'name-accent'];
-    let lineIndex = 0, charIndex = 0, currentText = '';
-    const twEl = document.getElementById('typewriter');
+<script>
+const T = {
+  de: {
+    "nav.skills":"skills","nav.experience":"werdegang","nav.projects":"projekte","nav.contact":"kontakt",
+    "hero.tag":"Offen für Ausbildung",
+    "hero.sub":"Angehender IT-Auszubildender (Fachinformatiker) aus Stuttgart.<br>Interesse an Softwareentwicklung, Webentwicklung, IT-Systemen und Spieleentwicklung.",
+    "hero.cta":"Kontakt aufnehmen",
+    "skills.label":"Kenntnisse","skills.heading":"Skills & Tools",
+    "sg.dev":"Development & AI Tools","sg.office":"Office & Software","sg.system":"System (Windows)",
+    "chip.basics":"(Grundlagen)","chip.maintenance":"Systempflege","chip.drivers":"Treiber & Geräte",
+    "chip.troubleshoot":"Fehlerbehebung","chip.hardware":"Hardware-Grundlagen",
+    "exp.label":"Erfahrung & Bildung","exp.heading":"Werdegang",
+    "exp.1.title":"Berufsbezogener Sprachkurs – Deutsch B2",
+    "exp.1.desc":"Intensivsprachkurs Deutsch B2 zur beruflichen Integration mit Schwerpunkt Kommunikation im Arbeitsalltag.",
+    "exp.2.title":"Website-Administrator",
+    "exp.2.desc":"Verwaltung und Pflege eines Online-Shops für Brettspiele. Produktbeschreibungen, Kategorien und Artikelpflege über CMS-Administrationspanel. Teilzeitbeschäftigung im Remote-Modus.",
+    "exp.3.title":"Berufsbezogener Sprachkurs – Deutsch B2",
+    "exp.3.desc":"Berufsbezogener Deutschsprachkurs mit Fokus auf berufliche Kommunikation und Vorbereitung auf die telc B2-Prüfung.",
+    "exp.4.title":"Integrationskurs – Deutsch A1–B1",
+    "exp.4.desc":"Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit offiziellem telc B1-Zertifikat.",
+    "exp.5.title":"Informationssysteme und Technologien",
+    "exp.5.desc":"Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.",
+    "lang.label":"Kommunikation","lang.heading":"Sprachen",
+    "lang.native":"Muttersprache","lang.basic":"Grundkenntnisse","lang.de.level":"B1 · B2-Kurs abgeschlossen",
+    "proj.label":"Eigene Projekte","proj.heading":"Projekte",
+    "proj.portfolio.desc":"Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN Sprachumschalter. Gebaut mit HTML, CSS und JavaScript.",
+    "proj.snake.desc":"Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System und Level-Mechanik.",
+    "proj.mines.desc":"Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.",
+    "proj.platformer.desc":"2D-Plattformspiel in Entwicklung. Browser-basiert mit HTML5 Canvas.",
+    "proj.wip":"In Entwicklung","proj.play":"Spielen ↗","proj.open":"Öffnen ↗",
+    "contact.label":"Erreichbar","contact.heading":"Kontakt","contact.phone":"Telefon","contact.location":"Standort",
+  },
+  en: {
+    "nav.skills":"skills","nav.experience":"experience","nav.projects":"projects","nav.contact":"contact",
+    "hero.tag":"Open for Ausbildung",
+    "hero.sub":"Aspiring IT apprentice (Fachinformatiker) based in Stuttgart.<br>Interested in software development, web development, IT systems and game development.",
+    "hero.cta":"Get in touch",
+    "skills.label":"Skills","skills.heading":"Skills & Tools",
+    "sg.dev":"Development & AI Tools","sg.office":"Office & Software","sg.system":"System (Windows)",
+    "chip.basics":"(basics)","chip.maintenance":"System maintenance","chip.drivers":"Drivers & devices",
+    "chip.troubleshoot":"Troubleshooting","chip.hardware":"Hardware basics",
+    "exp.label":"Experience & Education","exp.heading":"Background",
+    "exp.1.title":"Job-related German Course – B2",
+    "exp.1.desc":"Intensive German B2 course for professional integration, focused on everyday workplace communication.",
+    "exp.2.title":"Website Administrator",
+    "exp.2.desc":"Managed and maintained an online shop for board games. Product descriptions, categories and item maintenance via CMS admin panel. Part-time, fully remote.",
+    "exp.3.title":"Job-related German Course – B2",
+    "exp.3.desc":"Job-related German course (DeuFöV) focused on professional communication and preparation for the telc B2 exam.",
+    "exp.4.title":"Integration Course – German A1–B1",
+    "exp.4.desc":"German integration course from A1 to B1 under BAMF guidelines. Completed with an official telc B1 certificate.",
+    "exp.5.title":"Information Systems and Technologies",
+    "exp.5.desc":"Technical college / online studies focused on IT fundamentals, software development and data processing. Recognized as equivalent to German Mittlere Reife.",
+    "lang.label":"Communication","lang.heading":"Languages",
+    "lang.native":"Native speaker","lang.basic":"Basic knowledge","lang.de.level":"B1 · B2 course completed",
+    "proj.label":"My Projects","proj.heading":"Projects",
+    "proj.portfolio.desc":"Personal portfolio site with dark theme, scroll animations and DE/EN language switcher. Built with HTML, CSS and JavaScript.",
+    "proj.snake.desc":"Classic Snake game with smooth animation, multiple fruit types, score system and level mechanics.",
+    "proj.mines.desc":"Classic Minesweeper with three difficulty levels, a timer and flag system.",
+    "proj.platformer.desc":"2D platformer game in development. Browser-based using HTML5 Canvas.",
+    "proj.wip":"In Development","proj.play":"Play ↗","proj.open":"Open ↗",
+    "contact.label":"Reach me","contact.heading":"Contact","contact.phone":"Phone","contact.location":"Location",
+  }
+};
 
-    function type() {
-      if (lineIndex >= lines.length) return;
-      const line = lines[lineIndex];
-      if (charIndex < line.length) {
-        currentText += line[charIndex];
-        twEl.innerHTML = lineIndex === 0
-          ? currentText
-          : lines[0] + '<br><span class="name-accent">' + currentText + '</span>';
-        charIndex++;
-        setTimeout(type, 80);
-      } else {
-        lineIndex++; charIndex = 0; currentText = '';
-        if (lineIndex < lines.length) setTimeout(type, 300);
-      }
-    }
-    setTimeout(type, 600);
+let lang = localStorage.getItem('lang') || 'de';
 
-    /* ── SCROLL ANIMATIONS ── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem('lang', l);
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = T[l][el.dataset.i18n];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.getElementById('lang-toggle').classList.toggle('en', l === 'en');
+  document.getElementById('lbl-de').classList.toggle('active', l === 'de');
+  document.getElementById('lbl-en').classList.toggle('active', l === 'en');
+}
 
-    document.querySelectorAll('section').forEach(el => {
-      el.classList.add('scroll-hidden');
-      observer.observe(el);
-    });
+document.getElementById('lang-toggle').addEventListener('click', () => applyLang(lang === 'de' ? 'en' : 'de'));
+applyLang(lang);
 
-    /* ── PARALLAX ── */
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const hero = document.querySelector('.hero');
-      if (hero) {
-        hero.style.transform = `translateY(${scrollY * 0.25}px)`;
-        hero.style.opacity = 1 - scrollY / 600;
-      }
-    });
-  </script>
+/* TYPEWRITER */
+const lines = ['Ruslan','Liashenko'];
+let li = 0, ci = 0, cur = '';
+const tw = document.getElementById('typewriter');
+function type() {
+  if (li >= lines.length) return;
+  const line = lines[li];
+  if (ci < line.length) {
+    cur += line[ci];
+    tw.innerHTML = li === 0 ? cur : lines[0] + '<br><span class="name-accent">' + cur + '</span>';
+    ci++; setTimeout(type, 80);
+  } else { li++; ci = 0; cur = ''; if (li < lines.length) setTimeout(type, 300); }
+}
+setTimeout(type, 600);
+
+/* SCROLL ANIMATIONS */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(el => { el.classList.add('scroll-hidden'); obs.observe(el); });
+
+/* PARALLAX */
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  const hero = document.querySelector('.hero');
+  if (hero) { hero.style.transform = `translateY(${sy * 0.25}px)`; hero.style.opacity = 1 - sy / 600; }
+});
+</script>
 
 </body>
 </html>
