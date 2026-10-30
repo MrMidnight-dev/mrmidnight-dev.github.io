@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ruslan Liashenko – Portfolio</title>
+  <meta name="description" content="Portfolio von Ruslan Liashenko aus Stuttgart – auf der Suche nach einer Ausbildung zum Fachinformatiker für Anwendungsentwicklung.">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,6 +20,8 @@
     html { scroll-behavior: smooth; }
 
     body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; min-height: 100vh; }
+
+    a:focus-visible, .lang-toggle:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
 
     nav {
       position: sticky; top: 0; z-index: 100;
@@ -48,7 +51,7 @@
     .hero-tag::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent); }
     h1 { font-family: var(--mono); font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
     h1 .name-accent { color: var(--accent2); }
-    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 580px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 620px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
     .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn { font-family: var(--mono); font-size: 13px; padding: 10px 20px; border-radius: 4px; text-decoration: none; transition: all 0.2s; cursor: pointer; letter-spacing: 0.04em; }
     .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
@@ -65,7 +68,7 @@
     .skills-group { margin-bottom: 2.2rem; }
     .skills-group:last-child { margin-bottom: 0; }
     .skills-group-title { font-family: var(--mono); font-size: 12px; color: var(--accent2); margin-bottom: 0.9rem; font-weight: 700; letter-spacing: 0.04em; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
     .skill-chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 11px 14px; font-size: 12px; font-family: var(--mono); color: var(--text); transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
     .skill-chip:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 20px rgba(124,106,245,0.15); }
 
@@ -87,20 +90,27 @@
     .lang-fill { height: 100%; background: var(--accent); border-radius: 2px; }
 
     /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 20px; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; }
+    .project-note { font-size: 14px; color: var(--muted); max-width: 640px; margin: -1.5rem 0 2rem; line-height: 1.7; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
     .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-card.featured { grid-column: 1 / -1; padding: 24px; }
     .project-title { font-family: var(--mono); font-size: 15px; color: var(--text); margin-bottom: 6px; font-weight: 700; }
-    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .project-link { font-family: var(--mono); font-size: 11px; color: var(--accent2); }
-    .project-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 3px; background: rgba(255,204,0,0.1); border: 1px solid rgba(255,204,0,0.3); color: #ffcc00; margin-bottom: 8px; }
+    .project-card.featured .project-title { font-size: 18px; }
+    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .project-card.featured .project-desc { font-size: 14px; max-width: 640px; }
+    .project-links { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: auto; }
+    .project-link { font-family: var(--mono); font-size: 11px; color: var(--accent2); text-decoration: none; }
+    .project-link:hover { color: var(--text); text-decoration: underline; }
+    .project-badge { display: inline-block; align-self: flex-start; font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 3px; background: rgba(255,204,0,0.1); border: 1px solid rgba(255,204,0,0.3); color: #ffcc00; margin-bottom: 8px; }
+    .projects-sub { margin-top: 2.8rem; }
 
     /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .contact-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; }
     .contact-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
     .contact-val { font-size: 14px; color: var(--accent2); text-decoration: none; }
-    .contact-val:hover { color: var(--text); }
+    a.contact-val:hover { color: var(--text); }
 
     footer { text-align: center; padding: 2rem; font-family: var(--mono); font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
 
@@ -126,6 +136,12 @@
       .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
       .contact-grid { grid-template-columns: 1fr; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-in, .scroll-hidden { opacity: 1; transform: none; animation: none; transition: none; }
+      .cursor { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -141,7 +157,7 @@
     </ul>
     <div class="lang-switch">
       <span class="lang-label active" id="lbl-de">DE</span>
-      <div class="lang-toggle" id="lang-toggle"><div class="knob"></div></div>
+      <div class="lang-toggle" id="lang-toggle" role="button" tabindex="0" aria-label="Sprache wechseln / Switch language"><div class="knob"></div></div>
       <span class="lang-label" id="lbl-en">EN</span>
     </div>
   </div>
@@ -154,12 +170,13 @@
     <span id="typewriter"></span><span class="cursor"></span>
   </h1>
   <p class="hero-sub fade-in" data-i18n="hero.sub">
-    Angehender IT-Auszubildender (Fachinformatiker) aus Stuttgart.<br>
-    Interesse an Softwareentwicklung, Webentwicklung, IT-Systemen und Spieleentwicklung.
+    Auf der Suche nach einer Ausbildung zum Fachinformatiker für Anwendungsentwicklung.<br>
+    Interesse an Softwareentwicklung, Webentwicklung und IT-Systemen.
   </p>
   <div class="hero-links fade-in">
     <a href="#contact" class="btn btn-primary" data-i18n="hero.cta">Kontakt aufnehmen</a>
-    <a href="https://github.com/MrMidnight-dev" target="_blank" class="btn btn-outline">GitHub ↗</a>
+    <a href="Lebenslauf-Ruslan-Liashenko.pdf" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="hero.cv">Lebenslauf (PDF)</a>
+    <a href="https://github.com/MrMidnight-dev" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
   </div>
 </div>
 
@@ -172,18 +189,10 @@
     <p class="skills-group-title" data-i18n="sg.dev">Development & AI Tools</p>
     <div class="skills-grid">
       <div class="skill-chip">VS Code</div>
-      <div class="skill-chip">HTML / CSS</div>
-      <div class="skill-chip">GitHub</div>
+      <div class="skill-chip" data-i18n="chip.html">HTML (Grundkenntnisse)</div>
+      <div class="skill-chip" data-i18n="chip.git">Git / GitHub (Grundkenntnisse)</div>
       <div class="skill-chip">Claude (Anthropic)</div>
       <div class="skill-chip">ChatGPT</div>
-    </div>
-  </div>
-
-  <div class="skills-group" style="margin-top:1.8rem">
-    <p class="skills-group-title" data-i18n="sg.office">Office & Software</p>
-    <div class="skills-grid">
-      <div class="skill-chip">Microsoft Word</div>
-      <div class="skill-chip">Adobe Acrobat / PDF</div>
     </div>
   </div>
 
@@ -219,7 +228,7 @@
       <div class="tl-content">
         <h3 data-i18n="exp.2.title">Website-Administrator</h3>
         <span class="tl-org">Joy Kiew, Ukraine (Remote)</span>
-        <p class="tl-desc" data-i18n="exp.2.desc">Verwaltung und Pflege eines Online-Shops für Brettspiele. Produktbeschreibungen, Kategorien und Artikelpflege über CMS-Administrationspanel. Teilzeitbeschäftigung im Remote-Modus.</p>
+        <p class="tl-desc" data-i18n="exp.2.desc">Einstellen von Produkten, Festlegen von Preisen und Verfassen von Produktbeschreibungen in einem Online-Shop für Brettspiele. Pflege von Kategorien und Artikeln über das CMS-Administrationspanel. Teilzeit, remote.</p>
       </div>
     </div>
 
@@ -228,7 +237,7 @@
       <div class="tl-content">
         <h3 data-i18n="exp.3.title">Berufsbezogener Sprachkurs – Deutsch B2</h3>
         <span class="tl-org">tricos GbR, Stuttgart (DeuFöV, BAMF)</span>
-        <p class="tl-desc" data-i18n="exp.3.desc">Berufsbezogener Deutschsprachkurs mit Fokus auf berufliche Kommunikation und Vorbereitung auf die telc B2-Prüfung.</p>
+        <p class="tl-desc" data-i18n="exp.3.desc">Berufsbezogener Deutschkurs (B2-Programm) mit Fokus auf berufliche Kommunikation.</p>
       </div>
     </div>
 
@@ -237,16 +246,16 @@
       <div class="tl-content">
         <h3 data-i18n="exp.4.title">Integrationskurs – Deutsch A1–B1</h3>
         <span class="tl-org">tricos GbR, Stuttgart (BAMF)</span>
-        <p class="tl-desc" data-i18n="exp.4.desc">Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit offiziellem telc B1-Zertifikat.</p>
+        <p class="tl-desc" data-i18n="exp.4.desc">Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit dem Deutsch-Test für Zuwanderer (DTZ), Niveau B1.</p>
       </div>
     </div>
 
     <div class="tl-item">
       <span class="tl-date">09.2020 – 07.2022</span>
       <div class="tl-content">
-        <h3 data-i18n="exp.5.title">Informationssysteme und Technologien</h3>
-        <span class="tl-org">Nationale Vadym-Hetman-Wirtschaftsuniversität, Kiew</span>
-        <p class="tl-desc" data-i18n="exp.5.desc">Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.</p>
+        <h3 data-i18n="exp.5.title">Fachschule für Informationssysteme und -technologien</h3>
+        <span class="tl-org">Nationale Vadym-Hetman-Wirtschaftsuniversität Kyjiw</span>
+        <p class="tl-desc" data-i18n="exp.5.desc">Fachschule der Universität mit Schwerpunkt Informationssysteme und Informatik. Abschluss: vollständige allgemeine Mittelbildung, in Deutschland als Realschulabschluss (Mittlere Reife) anerkannt (Regierungspräsidium Stuttgart, 2024).</p>
       </div>
     </div>
 
@@ -270,7 +279,7 @@
     </div>
     <div class="lang-card">
       <p class="lang-name" data-i18n="lang.de.name">Deutsch</p>
-      <p class="lang-level" data-i18n="lang.de.level">B1 · B2-Kurs abgeschlossen</p>
+      <p class="lang-level" data-i18n="lang.de.level">B1 (DTZ-Zertifikat) · B2-Kurse besucht</p>
       <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
     </div>
     <div class="lang-card">
@@ -285,32 +294,51 @@
 <section id="projects">
   <p class="sec-label" data-i18n="proj.label">Eigene Projekte</p>
   <h2 data-i18n="proj.heading">Projekte</h2>
+  <p class="project-note" data-i18n="proj.note">Den Code dieser Projekte schreiben KI-Tools (Claude, ChatGPT). Ich lege fest, was das Programm können soll, teste die Ergebnisse und melde Fehler, die dann korrigiert werden.</p>
+
   <div class="projects-grid">
 
-    <a href="https://mrmidnight-dev.github.io" target="_blank" class="project-card">
-      <p class="project-title">Portfolio Website</p>
-      <p class="project-desc" data-i18n="proj.portfolio.desc">Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN Sprachumschalter. Gebaut mit HTML, CSS und JavaScript.</p>
-      <p class="project-link">mrmidnight-dev.github.io ↗</p>
-    </a>
+    <div class="project-card featured">
+      <p class="project-title" data-i18n="proj.platformer.title">Plattformspiel</p>
+      <span class="project-badge" data-i18n="proj.wip">In Entwicklung</span>
+      <p class="project-desc" data-i18n="proj.platformer.desc">2D-Plattformspiel im Browser (HTML5 Canvas) mit zufällig generierten Leveln, Punktestand, Münzen, Leben und beweglichen Plattformen. Im Shop lassen sich Extraleben kaufen oder Level überspringen. Mit Sound und Musik.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://mrmidnight-dev.github.io/Simple-Platformer/" target="_blank" rel="noopener" data-i18n="proj.play">Spielen ↗</a>
+        <a class="project-link" href="https://github.com/MrMidnight-dev/Simple-Platformer/blob/main/index.html" target="_blank" rel="noopener" data-i18n="proj.code">Code ansehen ↗</a>
+      </div>
+    </div>
 
-    <a href="https://mrmidnight-dev.github.io/Snake-Game" target="_blank" class="project-card">
+    <div class="project-card">
+      <p class="project-title">Portfolio Website</p>
+      <p class="project-desc" data-i18n="proj.portfolio.desc">Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN-Sprachumschalter.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://mrmidnight-dev.github.io" target="_blank" rel="noopener">mrmidnight-dev.github.io ↗</a>
+        <a class="project-link" href="https://github.com/MrMidnight-dev/mrmidnight-dev.github.io" target="_blank" rel="noopener" data-i18n="proj.code">Code ansehen ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="skills-group-title projects-sub" data-i18n="proj.sub">Kleinere Experimente</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
       <p class="project-title">Snake Game</p>
       <p class="project-desc" data-i18n="proj.snake.desc">Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System und Level-Mechanik.</p>
-      <p class="project-link" data-i18n="proj.play">Spielen ↗</p>
-    </a>
+      <div class="project-links">
+        <a class="project-link" href="https://mrmidnight-dev.github.io/Snake-Game" target="_blank" rel="noopener" data-i18n="proj.play">Spielen ↗</a>
+        <a class="project-link" href="https://github.com/MrMidnight-dev/Snake-Game" target="_blank" rel="noopener" data-i18n="proj.code">Code ansehen ↗</a>
+      </div>
+    </div>
 
-    <a href="https://mrmidnight-dev.github.io/MinesWeeper/" target="_blank" class="project-card">
+    <div class="project-card">
       <p class="project-title">Minesweeper</p>
       <p class="project-desc" data-i18n="proj.mines.desc">Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.</p>
-      <p class="project-link" data-i18n="proj.play">Spielen ↗</p>
-    </a>
-
-    <a href="https://mrmidnight-dev.github.io/Simple-Platformer/" target="_blank" class="project-card">
-      <p class="project-title">Simple Platformer</p>
-      <span class="project-badge" data-i18n="proj.wip">In Entwicklung</span>
-      <p class="project-desc" data-i18n="proj.platformer.desc">2D-Plattformspiel in Entwicklung. Browser-basiert mit HTML5 Canvas.</p>
-      <p class="project-link" data-i18n="proj.open">Öffnen ↗</p>
-    </a>
+      <div class="project-links">
+        <a class="project-link" href="https://mrmidnight-dev.github.io/MinesWeeper/" target="_blank" rel="noopener" data-i18n="proj.play">Spielen ↗</a>
+        <a class="project-link" href="https://github.com/MrMidnight-dev/MinesWeeper" target="_blank" rel="noopener" data-i18n="proj.code">Code ansehen ↗</a>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -325,16 +353,16 @@
       <a href="mailto:ruslan.liashenko.dev@gmail.com" class="contact-val">ruslan.liashenko.dev@gmail.com</a>
     </div>
     <div class="contact-item">
-      <span class="contact-label" data-i18n="contact.phone">Telefon</span>
-      <a href="tel:+4915117292541" class="contact-val">+49 151 1729 2541</a>
-    </div>
-    <div class="contact-item">
       <span class="contact-label" data-i18n="contact.location">Standort</span>
       <span class="contact-val">Stuttgart, Deutschland</span>
     </div>
     <div class="contact-item">
       <span class="contact-label">GitHub</span>
-      <a href="https://github.com/MrMidnight-dev" target="_blank" class="contact-val">github.com/MrMidnight-dev</a>
+      <a href="https://github.com/MrMidnight-dev" target="_blank" rel="noopener" class="contact-val">github.com/MrMidnight-dev</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label" data-i18n="contact.cv">Lebenslauf</span>
+      <a href="Lebenslauf-Ruslan-Liashenko.pdf" target="_blank" rel="noopener" class="contact-val" data-i18n="contact.cv.link">PDF öffnen ↗</a>
     </div>
   </div>
 </section>
@@ -346,72 +374,83 @@ const T = {
   de: {
     "nav.skills":"skills","nav.experience":"werdegang","nav.projects":"projekte","nav.contact":"kontakt",
     "hero.tag":"Offen für Ausbildung",
-    "hero.sub":"Angehender IT-Auszubildender (Fachinformatiker) aus Stuttgart.<br>Interesse an Softwareentwicklung, Webentwicklung, IT-Systemen und Spieleentwicklung.",
-    "hero.cta":"Kontakt aufnehmen",
+    "hero.sub":"Auf der Suche nach einer Ausbildung zum Fachinformatiker für Anwendungsentwicklung.<br>Interesse an Softwareentwicklung, Webentwicklung und IT-Systemen.",
+    "hero.cta":"Kontakt aufnehmen","hero.cv":"Lebenslauf (PDF)",
     "skills.label":"Kenntnisse","skills.heading":"Skills & Tools",
-    "sg.dev":"Development & AI Tools","sg.office":"Office & Software","sg.system":"System (Windows)",
-    "chip.basics":"(Grundlagen)","chip.maintenance":"Systempflege","chip.drivers":"Treiber & Geräte",
+    "sg.dev":"Development & AI Tools","sg.system":"System (Windows)",
+    "chip.html":"HTML (Grundkenntnisse)","chip.git":"Git / GitHub (Grundkenntnisse)",
+    "chip.maintenance":"Systempflege","chip.drivers":"Treiber & Geräte",
     "chip.troubleshoot":"Fehlerbehebung","chip.hardware":"Hardware-Grundlagen",
     "exp.label":"Erfahrung & Bildung","exp.heading":"Werdegang",
     "exp.1.title":"Berufsbezogener Sprachkurs – Deutsch B2",
     "exp.1.desc":"Intensivsprachkurs Deutsch B2 zur beruflichen Integration mit Schwerpunkt Kommunikation im Arbeitsalltag.",
     "exp.2.title":"Website-Administrator",
-    "exp.2.desc":"Verwaltung und Pflege eines Online-Shops für Brettspiele. Produktbeschreibungen, Kategorien und Artikelpflege über CMS-Administrationspanel. Teilzeitbeschäftigung im Remote-Modus.",
+    "exp.2.desc":"Einstellen von Produkten, Festlegen von Preisen und Verfassen von Produktbeschreibungen in einem Online-Shop für Brettspiele. Pflege von Kategorien und Artikeln über das CMS-Administrationspanel. Teilzeit, remote.",
     "exp.3.title":"Berufsbezogener Sprachkurs – Deutsch B2",
-    "exp.3.desc":"Berufsbezogener Deutschsprachkurs mit Fokus auf berufliche Kommunikation und Vorbereitung auf die telc B2-Prüfung.",
+    "exp.3.desc":"Berufsbezogener Deutschkurs (B2-Programm) mit Fokus auf berufliche Kommunikation.",
     "exp.4.title":"Integrationskurs – Deutsch A1–B1",
-    "exp.4.desc":"Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit offiziellem telc B1-Zertifikat.",
-    "exp.5.title":"Informationssysteme und Technologien",
-    "exp.5.desc":"Fachschule / Online-Studium mit Schwerpunkt auf IT-Grundlagen, Softwareentwicklung und Datenverarbeitung. Anerkennung als Mittlere Reife in Deutschland.",
+    "exp.4.desc":"Integrationskurs Deutsch von A1 bis B1 nach BAMF-Richtlinien. Abschluss mit dem Deutsch-Test für Zuwanderer (DTZ), Niveau B1.",
+    "exp.5.title":"Fachschule für Informationssysteme und -technologien",
+    "exp.5.desc":"Fachschule der Universität mit Schwerpunkt Informationssysteme und Informatik. Abschluss: vollständige allgemeine Mittelbildung, in Deutschland als Realschulabschluss (Mittlere Reife) anerkannt (Regierungspräsidium Stuttgart, 2024).",
     "lang.label":"Kommunikation","lang.heading":"Sprachen",
     "lang.ru":"Russisch","lang.ua":"Ukrainisch","lang.de.name":"Deutsch","lang.en.name":"Englisch",
-    "lang.native":"Muttersprache","lang.basic":"Grundkenntnisse","lang.de.level":"B1 · B2-Kurs abgeschlossen",
+    "lang.native":"Muttersprache","lang.basic":"Grundkenntnisse","lang.de.level":"B1 (DTZ-Zertifikat) · B2-Kurse besucht",
     "proj.label":"Eigene Projekte","proj.heading":"Projekte",
-    "proj.portfolio.desc":"Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN Sprachumschalter. Gebaut mit HTML, CSS und JavaScript.",
+    "proj.note":"Den Code dieser Projekte schreiben KI-Tools (Claude, ChatGPT). Ich lege fest, was das Programm können soll, teste die Ergebnisse und melde Fehler, die dann korrigiert werden.",
+    "proj.platformer.title":"Plattformspiel",
+    "proj.platformer.desc":"2D-Plattformspiel im Browser (HTML5 Canvas) mit zufällig generierten Leveln, Punktestand, Münzen, Leben und beweglichen Plattformen. Im Shop lassen sich Extraleben kaufen oder Level überspringen. Mit Sound und Musik.",
+    "proj.portfolio.desc":"Persönliche Portfolio-Seite mit Dark Theme, Scroll-Animationen und DE/EN-Sprachumschalter.",
+    "proj.sub":"Kleinere Experimente",
     "proj.snake.desc":"Klassisches Snake-Spiel mit flüssiger Animation, mehreren Frucht-Typen, Score-System und Level-Mechanik.",
     "proj.mines.desc":"Klassischer Minesweeper mit drei Schwierigkeitsgraden, Timer und Flag-System.",
-    "proj.platformer.desc":"2D-Plattformspiel in Entwicklung. Browser-basiert mit HTML5 Canvas.",
-    "proj.wip":"In Entwicklung","proj.play":"Spielen ↗","proj.open":"Öffnen ↗",
-    "contact.label":"Erreichbar","contact.heading":"Kontakt","contact.phone":"Telefon","contact.location":"Standort",
+    "proj.wip":"In Entwicklung","proj.play":"Spielen ↗","proj.code":"Code ansehen ↗",
+    "contact.label":"Erreichbar","contact.heading":"Kontakt","contact.location":"Standort",
+    "contact.cv":"Lebenslauf","contact.cv.link":"PDF öffnen ↗",
   },
   en: {
     "nav.skills":"skills","nav.experience":"experience","nav.projects":"projects","nav.contact":"contact",
     "hero.tag":"Open for Ausbildung",
-    "hero.sub":"Aspiring IT apprentice (Fachinformatiker) based in Stuttgart.<br>Interested in software development, web development, IT systems and game development.",
-    "hero.cta":"Get in touch",
+    "hero.sub":"Looking for an apprenticeship as a Fachinformatiker für Anwendungsentwicklung (IT specialist, application development).<br>Interested in software development, web development and IT systems.",
+    "hero.cta":"Get in touch","hero.cv":"CV (PDF)",
     "skills.label":"Skills","skills.heading":"Skills & Tools",
-    "sg.dev":"Development & AI Tools","sg.office":"Office & Software","sg.system":"System (Windows)",
-    "chip.basics":"(basics)","chip.maintenance":"System maintenance","chip.drivers":"Drivers & devices",
+    "sg.dev":"Development & AI Tools","sg.system":"System (Windows)",
+    "chip.html":"HTML (basics)","chip.git":"Git / GitHub (basics)",
+    "chip.maintenance":"System maintenance","chip.drivers":"Drivers & devices",
     "chip.troubleshoot":"Troubleshooting","chip.hardware":"Hardware basics",
     "exp.label":"Experience & Education","exp.heading":"Background",
     "exp.1.title":"Job-related German Course – B2",
     "exp.1.desc":"Intensive German B2 course for professional integration, focused on everyday workplace communication.",
     "exp.2.title":"Website Administrator",
-    "exp.2.desc":"Managed and maintained an online shop for board games. Product descriptions, categories and item maintenance via CMS admin panel. Part-time, fully remote.",
+    "exp.2.desc":"Listed products, set prices and wrote product descriptions in an online shop for board games. Maintained categories and items via the CMS admin panel. Part-time, remote.",
     "exp.3.title":"Job-related German Course – B2",
-    "exp.3.desc":"Job-related German course (DeuFöV) focused on professional communication and preparation for the telc B2 exam.",
+    "exp.3.desc":"Job-related German course (B2 programme) focused on professional communication.",
     "exp.4.title":"Integration Course – German A1–B1",
-    "exp.4.desc":"German integration course from A1 to B1 under BAMF guidelines. Completed with an official telc B1 certificate.",
-    "exp.5.title":"Information Systems and Technologies",
-    "exp.5.desc":"Technical college / online studies focused on IT fundamentals, software development and data processing. Recognized as equivalent to German Mittlere Reife.",
+    "exp.4.desc":"German integration course from A1 to B1 under BAMF guidelines. Completed with the German test for immigrants (DTZ), level B1.",
+    "exp.5.title":"College for Information Systems and Technologies",
+    "exp.5.desc":"College of the university, focused on information systems and computer science. Qualification: complete general secondary education, recognised in Germany as Realschulabschluss (Mittlere Reife) by the Regierungspräsidium Stuttgart in 2024.",
     "lang.label":"Communication","lang.heading":"Languages",
     "lang.ru":"Russian","lang.ua":"Ukrainian","lang.de.name":"German","lang.en.name":"English",
-    "lang.native":"Native speaker","lang.basic":"Basic knowledge","lang.de.level":"B1 · B2 course completed",
+    "lang.native":"Native speaker","lang.basic":"Basic knowledge","lang.de.level":"B1 (DTZ certificate) · B2 courses attended",
     "proj.label":"My Projects","proj.heading":"Projects",
-    "proj.portfolio.desc":"Personal portfolio site with dark theme, scroll animations and DE/EN language switcher. Built with HTML, CSS and JavaScript.",
+    "proj.note":"The code of these projects is written by AI tools (Claude, ChatGPT). I define what the program should do, test the results and report bugs, which are then fixed.",
+    "proj.platformer.title":"Platformer game",
+    "proj.platformer.desc":"2D platformer in the browser (HTML5 Canvas) with randomly generated levels, score, coins, lives and moving platforms. In the shop you can buy extra lives or skip levels. With sound and music.",
+    "proj.portfolio.desc":"Personal portfolio site with dark theme, scroll animations and DE/EN language switcher.",
+    "proj.sub":"Smaller experiments",
     "proj.snake.desc":"Classic Snake game with smooth animation, multiple fruit types, score system and level mechanics.",
     "proj.mines.desc":"Classic Minesweeper with three difficulty levels, a timer and flag system.",
-    "proj.platformer.desc":"2D platformer game in development. Browser-based using HTML5 Canvas.",
-    "proj.wip":"In Development","proj.play":"Play ↗","proj.open":"Open ↗",
-    "contact.label":"Reach me","contact.heading":"Contact","contact.phone":"Phone","contact.location":"Location",
+    "proj.wip":"In Development","proj.play":"Play ↗","proj.code":"View code ↗",
+    "contact.label":"Reach me","contact.heading":"Contact","contact.location":"Location",
+    "contact.cv":"CV","contact.cv.link":"Open PDF ↗",
   }
 };
 
-let lang = localStorage.getItem('lang') || 'de';
+let lang = 'de';
+try { lang = localStorage.getItem('lang') || 'de'; } catch (e) {}
 
 function applyLang(l) {
   lang = l;
-  localStorage.setItem('lang', l);
+  try { localStorage.setItem('lang', l); } catch (e) {}
   document.documentElement.lang = l;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = T[l][el.dataset.i18n];
@@ -422,7 +461,11 @@ function applyLang(l) {
   document.getElementById('lbl-en').classList.toggle('active', l === 'en');
 }
 
-document.getElementById('lang-toggle').addEventListener('click', () => applyLang(lang === 'de' ? 'en' : 'de'));
+const toggle = document.getElementById('lang-toggle');
+toggle.addEventListener('click', () => applyLang(lang === 'de' ? 'en' : 'de'));
+toggle.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); applyLang(lang === 'de' ? 'en' : 'de'); }
+});
 applyLang(lang);
 
 /* TYPEWRITER */
